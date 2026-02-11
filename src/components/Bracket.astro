@@ -1,0 +1,124 @@
+---
+// src/components/Bracket.astro
+const crRounds = [
+  { name: "Octavos", matches: 8 },
+  { name: "Cuartos", matches: 4 },
+  { name: "Semis", matches: 2 },
+  { name: "Final", matches: 1 }
+];
+
+const bsRounds = [
+  { name: "Octavos", matches: 8 }, // 16 parejas
+  { name: "Cuartos", matches: 4 },
+  { name: "Semis", matches: 2 },
+  { name: "Final", matches: 1 }
+];
+---
+
+<section class="py-20 px-4 max-w-7xl mx-auto" id="llaves">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black italic uppercase tracking-tighter">Llaves del Torneo</h2>
+    <p class="text-slate-400 mt-2">Selecciona el juego para ver los enfrentamientos</p>
+  </div>
+
+  <div class="flex justify-center gap-4 mb-12">
+    <button id="btn-cr" class="px-6 py-3 bg-blue-600 rounded-xl font-black italic tracking-widest transition-all hover:scale-105 active-tab shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+      CLASH ROYALE (1v1)
+    </button>
+    <button id="btn-bs" class="px-6 py-3 bg-slate-900 border border-white/10 text-slate-400 rounded-xl font-black italic tracking-widest transition-all hover:border-purple-500 hover:text-white">
+      BRAWL STARS (2v2)
+    </button>
+  </div>
+
+  <div id="bracket-cr" class="block animate-fade-in overflow-x-auto">
+    <div class="flex flex-row min-w-[900px] justify-between gap-4">
+      {crRounds.map((round) => (
+        <div class="flex-1 flex flex-col gap-6">
+          <span class="text-center text-xs font-bold uppercase text-blue-500 tracking-[0.2em]">{round.name}</span>
+          <div class="flex flex-col justify-around h-full gap-4">
+            {Array.from({ length: round.matches }).map(() => (
+              <div class="bg-slate-900/60 border border-white/5 p-3 rounded-xl shadow-lg">
+                <div class="flex justify-between border-b border-white/5 pb-1 mb-1 italic text-slate-300">
+                  <span>Jugador --</span> <span class="text-xs text-slate-600 font-bold">0</span>
+                </div>
+                <div class="flex justify-between italic text-slate-300">
+                  <span>Jugador --</span> <span class="text-xs text-slate-600 font-bold">0</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div id="bracket-bs" class="hidden animate-fade-in overflow-x-auto">
+    <div class="flex flex-row min-w-[900px] justify-between gap-4">
+      {bsRounds.map((round) => (
+        <div class="flex-1 flex flex-col gap-6">
+          <span class="text-center text-xs font-bold uppercase text-purple-500 tracking-[0.2em]">{round.name}</span>
+          <div class="flex flex-col justify-around h-full gap-4">
+            {Array.from({ length: round.matches }).map(() => (
+              <div class="bg-slate-900/60 border border-purple-500/20 p-3 rounded-xl shadow-lg">
+                <div class="border-b border-white/5 pb-2 mb-2">
+                  <div class="text-[10px] text-purple-400 font-bold uppercase mb-1">Equipo --</div>
+                  <div class="flex flex-col text-xs text-slate-300 italic">
+                    <span>Jugador A1 / Jugador A2</span>
+                  </div>
+                </div>
+                <div>
+                   <div class="text-[10px] text-purple-400 font-bold uppercase mb-1">Equipo --</div>
+                   <div class="flex flex-col text-xs text-slate-300 italic">
+                    <span>Jugador B1 / Jugador B2</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Seleccionamos los elementos
+  const btnCr = document.getElementById('btn-cr');
+  const btnBs = document.getElementById('btn-bs');
+  const bracketCr = document.getElementById('bracket-cr');
+  const bracketBs = document.getElementById('bracket-bs');
+
+  // Validamos que todos existan antes de agregar los eventos
+  if (btnCr && btnBs && bracketCr && bracketBs) {
+    
+    btnCr.addEventListener('click', () => {
+      // Mostrar CR, Ocultar BS
+      bracketCr.classList.remove('hidden');
+      bracketBs.classList.add('hidden');
+      
+      // Estilos de botones (CR Activo)
+      btnCr.className = "px-6 py-3 bg-blue-600 rounded-xl font-black italic tracking-widest transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)]";
+      btnBs.className = "px-6 py-3 bg-slate-900 border border-white/10 text-slate-400 rounded-xl font-black italic tracking-widest transition-all hover:border-purple-500 hover:text-white";
+    });
+
+    btnBs.addEventListener('click', () => {
+      // Mostrar BS, Ocultar CR
+      bracketBs.classList.remove('hidden');
+      bracketCr.classList.add('hidden');
+      
+      // Estilos de botones (BS Activo)
+      btnBs.className = "px-6 py-3 bg-purple-600 rounded-xl font-black italic tracking-widest transition-all shadow-[0_0_20px_rgba(147,51,234,0.4)] text-white";
+      btnCr.className = "px-6 py-3 bg-slate-900 border border-white/10 text-slate-400 rounded-xl font-black italic tracking-widest transition-all hover:border-blue-500 hover:text-white";
+    });
+  }
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+// src/components/Stream.astro
+---
+<section class="py-20 px-4 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#53fc18]/5 blur-[120px] -z-10"></div>
+
+  <div class="max-w-4xl mx-auto bg-slate-950 border border-[#53fc18]/30 p-10 md:p-16 rounded-[2.5rem] shadow-[0_0_50px_rgba(83,252,24,0.1)] relative">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#53fc18]/10 text-[#53fc18] text-xs font-black uppercase tracking-[0.2em] mb-8 border border-[#53fc18]/20">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#53fc18] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#53fc18]"></span>
+      </span>
+      En Vivo por Kick
+    </div>
+    
+    <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-6 tracking-tighter">
+      SIGUE LA TRANSMISIÓN <span class="text-[#53fc18] drop-shadow-[0_0_10px_rgba(83,252,24,0.5)]">OFICIAL</span>
+    </h2>
+    
+    <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+      No te pierdas ninguna partida. Estaremos transmitiendo desde <span class="text-white font-bold">Octavos hasta la Gran Final</span> con casteo profesional.
+    </p>
+
+    <a 
+      href="https://kick.com/TU_USUARIO" 
+      target="_blank" 
+      class="group relative inline-flex items-center gap-4 px-12 py-5 bg-[#53fc18] text-black font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(83,252,24,0.6)] uppercase italic tracking-wider"
+    >
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/>
+      </svg>
+      Ir al Canal de Kick
+    </a>
+  </div>
+</section>

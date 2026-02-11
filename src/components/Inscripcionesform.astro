@@ -1,0 +1,101 @@
+---
+---
+<section class="py-20 px-4" id="inscripcion">
+  <div class="max-w-3xl mx-auto bg-slate-900/80 border border-white/10 p-8 md:p-12 rounded-3xl backdrop-blur-xl shadow-2xl">
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-black italic uppercase tracking-tighter mb-4">Formulario de <span class="text-blue-500">Registro</span></h2>
+      <p class="text-slate-400">Completa tus datos y realiza el pago para participar.</p>
+    </div>
+
+    <form 
+      action="https://formspree.io/f/TU_FORM_ID" 
+      method="POST" 
+      enctype="multipart/form-data"
+      class="flex flex-col gap-6"
+    >
+      <input type="hidden" name="_subject" value="Nueva Inscripción al Torneo" />
+
+      <div class="flex flex-col gap-2">
+        <label for="game-select" class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Juego a participar</label>
+        <select 
+          name="Juego Seleccionado" 
+          id="game-select" 
+          required 
+          class="bg-slate-800 border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+        >
+          <option value="Clash Royale (1v1)">Clash Royale (1v1)</option>
+          <option value="Brawl Stars (2v2)">Brawl Stars (2v2)</option>
+        </select>
+      </div>
+
+      <div id="nickname-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col gap-2">
+          <label id="label-nick-1" for="nick1" class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Tu Nickname</label>
+          <input type="text" name="Nick_Jugador_1" id="nick1" required placeholder="Ej: PekkaMaster" class="bg-slate-800 border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500"/>
+        </div>
+
+        <div id="field-nick-2" class="hidden flex flex-col gap-2">
+          <label for="nick2" class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Nickname Jugador 2</label>
+          <input type="text" name="Nick_Jugador_2" id="nick2" placeholder="Ej: SurgeGod" class="bg-slate-800 border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500"/>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="whatsapp" class="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">WhatsApp de contacto</label>
+        <input type="tel" name="WhatsApp_Contacto" id="whatsapp" required placeholder="Ej: 987654321" class="bg-slate-800 border border-white/5 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500"/>
+      </div>
+
+      <div class="mt-4 p-6 bg-white/5 rounded-2xl border border-dashed border-white/20 flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-shrink-0 bg-white p-2 rounded-lg w-32 md:w-40">
+          <img 
+            src="/perroenpan.jpg" 
+            alt="QR Yape Plin" 
+            class="w-full h-auto"
+          />
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h4 class="text-yellow-500 font-bold uppercase text-xs tracking-widest mb-1">Paso Final: Realiza el pago</h4>
+          <p class="text-white font-black text-2xl italic tracking-tighter mb-2 text-blue-500">S/ 1.00</p>
+          <p class="text-slate-400 text-xs leading-relaxed">Escanea el código con <span class="text-white font-bold">Yape</span>. Luego, sube la captura de pantalla aquí abajo para validar tu inscripción. (QR no disponible)</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="payment" class="text-xs font-bold uppercase tracking-widest text-blue-400 ml-1">Subir Captura del Pago</label>
+        <input 
+          type="file" 
+          name="Captura_Pago" 
+          id="payment" 
+          accept="image/*" 
+          required 
+          class="text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer"
+        />
+      </div>
+
+      <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-500 text-white font-black italic py-4 rounded-xl shadow-lg transition-all hover:scale-[1.01] uppercase tracking-widest">
+        ENVIAR INSCRIPCIÓN
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const gameSelect = document.getElementById('game-select') as HTMLSelectElement;
+  const fieldNick2 = document.getElementById('field-nick-2');
+  const inputNick2 = document.getElementById('nick2') as HTMLInputElement;
+  const labelNick1 = document.getElementById('label-nick-1');
+
+  if (gameSelect && fieldNick2 && inputNick2 && labelNick1) {
+    gameSelect.addEventListener('change', () => {
+      if (gameSelect.value === 'Brawl Stars (2v2)') {
+        fieldNick2.classList.remove('hidden');
+        inputNick2.required = true;
+        labelNick1.textContent = "Nickname Jugador 1";
+      } else {
+        fieldNick2.classList.add('hidden');
+        inputNick2.required = false;
+        labelNick1.textContent = "Tu Nickname";
+      }
+    });
+  }
+</script>

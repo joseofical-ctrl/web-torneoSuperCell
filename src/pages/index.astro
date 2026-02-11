@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Infoinscripcion from '../components/Infoinscripcion.astro';
+import Reglas from '../components/Reglas.astro';
+import Stream from '../components/Stream.astro';
+import Bracket from '../components/Bracket.astro';
+import InscripcionForm from '../components/Inscripcionesform.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Torneo Libre 2026">
+  <main>
+    <Hero />
+    <Infoinscripcion />
+    <Reglas />
+    <Stream />
+    
+    <div class="max-w-7xl mx-auto px-4 pb-20">
+      <div id="llaves">
+        <Bracket />
+      </div>
+    </div>
+
+    <InscripcionForm />
+  </main>
+  <Footer />
+</Layout>

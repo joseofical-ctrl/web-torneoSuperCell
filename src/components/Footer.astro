@@ -1,0 +1,51 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-[#020617] border-t border-white/5 pt-16 pb-8 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      
+      <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-black italic uppercase tracking-tighter">
+          TORNEO <span class="text-blue-500">LIBRE</span>
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xs">
+          La mejor competencia de Clash Royale y Brawl Stars. Demuestra tu nivel en el meta de Nivel 11 y llévate el premio mayor.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h3 class="text-white font-bold uppercase text-xs tracking-[0.2em]">Navegación</h3>
+        <nav class="flex flex-col gap-2">
+          <a href="#reglas" class="text-slate-400 hover:text-blue-400 text-sm transition-colors w-fit italic">Reglas del Torneo</a>
+          <a href="#llaves" class="text-slate-400 hover:text-blue-400 text-sm transition-colors w-fit italic">Ver Brackets</a>
+          <a href="#inscripcion" class="text-slate-400 hover:text-blue-400 text-sm transition-colors w-fit italic">Formulario de Inscripción</a>
+        </nav>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h3 class="text-white font-bold uppercase text-xs tracking-[0.2em]">Sigue el Stream</h3>
+        <a 
+          href="https://kick.com/TU_USUARIO" 
+          target="_blank" 
+          class="flex items-center gap-2 text-slate-400 hover:text-[#53fc18] transition-colors group italic"
+        >
+          <span class="p-2 bg-white/5 rounded-lg group-hover:bg-[#53fc18]/10 transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>
+          </span>
+          Canal de Kick
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">
+        © {currentYear} Open Gaming — Todos los derechos reservados.
+      </p>
+      <p class="text-slate-500 text-[10px] uppercase tracking-widest">
+        No afiliado con Supercell.
+      </p>
+    </div>
+  </div>
+</footer>

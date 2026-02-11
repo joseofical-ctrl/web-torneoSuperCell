@@ -1,0 +1,18 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="icon" type="image/png" href="/Logoventana.png" />
+        
+        <title>Torneo Libre 2026 - Clash & Brawl</title>
+    </head>
+    <body class="bg-[#020617] text-white selection:bg-blue-500/30">
+        <slot />
+    </body>
+</html>
