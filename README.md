@@ -1,46 +1,54 @@
-# Astro Starter Kit: Basics
+# 🏆 Torneo Libre 2026 - Clash Royale & Brawl Stars
 
-```sh
-npm create astro@latest -- --template basics
-```
+Sitio web oficial para la gestión e inscripción de torneos relámpago de **Clash Royale (1v1)** y **Brawl Stars (2v2)**. La plataforma permite visualizar las llaves de los torneos, consultar las reglas, ver la transmisión en vivo y realizar la inscripción mediante un formulario integrado con Formspree.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Tecnologías Utilizadas
 
-## 🚀 Project Structure
+* **Astro** - Framework web para la velocidad.
+* **Tailwind CSS** - Diseño responsivo y estilos modernos con estética gaming.
+* **Formspree** - Manejo de formularios e inscripciones directamente al correo.
+* **TypeScript** - Para un desarrollo más seguro y sin errores de lógica.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📋 Características Principales
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+* **Hero Section Dinámico**: Muestra el costo de inscripción (S/ 1.00) y el premio (S/ 10.00) de forma impactante.
+* **Brackets (Llaves)**: Sistema de pestañas deslizables para alternar entre los cuadros de Clash Royale y Brawl Stars (16 participantes por juego).
+* **Reglas Claras**: Sección detallada con normas de participación, niveles de cartas (Nivel 11) y premios.
+* **Integración con Kick**: Sección dedicada para seguir la transmisión oficial del torneo.
+* **Formulario de Registro Inteligente**: 
+    * Cambia dinámicamente según el juego elegido (1 o 2 jugadores).
+    * Incluye código QR de pago integrado.
+    * Soporte para subida de captura de pantalla (comprobante).
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Instalación y Configuración
 
-## 🧞 Commands
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
+    cd TU_REPOSITORIO
+    ```
 
-All commands are run from the root of the project, from a terminal:
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3.  **Configurar Formspree:**
+    * Crea un formulario en [formspree.io](https://formspree.io/).
+    * Copia el ID de tu formulario.
+    * Pégalo en el archivo `src/components/Inscripcionesform.astro` en el atributo `action`.
 
-## 👀 Want to learn more?
+4.  **Ejecutar en modo desarrollo:**
+    ```bash
+    npm run dev
+    ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+5.  **Abrir el navegador:**
+    Visita `http://localhost:4321` para ver los cambios en tiempo real.
+
+## 📸 Imágenes del Proyecto
+
+Asegúrate de colocar tu logo como `favicon.png` y tu QR de pago como `qr-pago.png` en la carpeta `public/` para que se visualicen correctamente en la web.
+
+---
+*Este proyecto es de participación libre y no está afiliado oficialmente con Supercell.*
